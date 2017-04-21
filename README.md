@@ -68,7 +68,7 @@ takagi.yuusuke@automation.jp
 sudo yum install php php-fpm php-gd php-mbstring php-pecl-apc php-mysql php-mcrypt php-imap
 ```
 
-/etc/php-fpm.d/www.conf を以下に変更する
+/etc/php-fpm.d/www.conf に以下に追記する
 ```
 listen.owner = nginx
 listen.group = nginx
