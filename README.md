@@ -49,8 +49,6 @@ takagi.yuusuke@automation.jp
        location / {
                 try_files $uri $uri/ /index.php?$args;
        }
-       # Add trailing slash to */wp-admin requests.
-       rewrite /wp-admin$ $scheme://$host$uri/ permanent;
        location ~*  \.(jpg|jpeg|png|gif|css|js|ico)$ {
                 expires max;
                 log_not_found off;
