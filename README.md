@@ -22,42 +22,28 @@ takagi.yuusuke@automation.jp
 
 1.nginxをインストールする 
  こんな感じでVirtualHostを設定する
+
  ```nginx:virtual.conf
  server {
        listen 80;
        server_name www.example.com example.com;
        root /var/www/www.example.com/web;
-       if ($http_host != "www.example.com") {
-                 rewrite ^ http://www.example.com$request_uri permanent;
-       }
        index index.php index.html;
-       location = /favicon.ico {
-                log_not_found off;
-                access_log off;
-       }
-       location = /robots.txt {
-                allow all;
-                log_not_found off;
-                access_log off;
-       }
-       # Deny all attempts to access hidden files such as .htaccess, .htpasswd, .DS_Store (Mac).
-       location ~ /\. {
-                deny all;
-                access_log off;
-                log_not_found off;
-       }
+       
        location / {
-                try_files $uri $uri/ /index.php?$args;
+        try_files $uri $uri/ /index.php?$args =404;
        }
+       
        location ~*  \.(jpg|jpeg|png|gif|css|js|ico)$ {
                 expires max;
                 log_not_found off;
        }
        location ~ \.php$ {
-                try_files $uri =404;
-                include /etc/nginx/fastcgi_params;
-                fastcgi_pass 127.0.0.1:9000;
-                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         try_files $uri =404;
+         include fastcgi_params;
+         fastcgi_split_path_info  ^(.+\.php)(/.+)$;
+         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
+         fastcgi_intercept_errors on;
        }
 }
 ```
