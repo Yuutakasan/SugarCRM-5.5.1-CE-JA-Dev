@@ -67,6 +67,7 @@ takagi.yuusuke@automation.jp
 2.php-fpmをインストールする
 
 /etc/php-fpm.d/www.conf を以下に変更する
+```
 listen.owner = nginx
 listen.group = nginx
 user = nginx
@@ -87,23 +88,28 @@ php_admin_value[error_reporting] =E_WARNING & ~E_NOTICE & ~E_DEPRECATED & ~E_STR
 php_admin_value[short_open_tag]=On
 
 php_admin_value[date.timezone]="Asia/Tokyo""
+```
 
 3.公開ディレクトリにこのリポジトリのファイルを展開する
 
+```
 cd /var/www/www.example.com/
 sudo wget https://github.com/Yuutakasan/SugarCRM-5.5.1-CE-JA-Dev/archive/master.zip
 sudo unzip master.zip
 rm master.zip
 sudo mv master web
+```
 
 4.権限を変更する
 
+```
 sudo chown nginx:nginx -R /var/lib/php/session
 sudo chmod 755 -R /var/www/www.example.com/web
 sudo chown nginx:nginx -R /var/www/www.example.com/web
 sudo chmod 775 -R /var/www/www.example.com/web/custom
 sudo chmod 775 -R /var/www/www.example.com/web/cache
 sudo chmod 775 -R /var/www/www.example.com/web/data
+```
 
 ドキュメント類は以下を参照してください。
 https://sourceforge.net/projects/sugarcrm/files/SugarCRM%20Release%20Archive/SugarCRM%205.5.X/
