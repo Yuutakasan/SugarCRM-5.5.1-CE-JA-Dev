@@ -8,7 +8,7 @@ SPAではなくHTMLベースであり、ライセンスがGPLv3(つまりSaasサ
 このリポジトリにはSugarCRM-5.5.1-Community-Editionの日本語 開発版を転載しています。
 ※既に更新が停止しており、どこにも見当たらなかったため、githubに保存用に置いています。
 
-php5.28推奨ですが、5.3系でも動作します。
+php5.28推奨ですが、5.3系(Amazon Linux)でも動作します。
 SugarCRM5.4以上では不具合が発生します。
 ※HHVMでも一部の機能が動作しない事を確認しています。
 　互換レベルが古いHiphopPHPなら動作するかも
@@ -64,7 +64,11 @@ takagi.yuusuke@automation.jp
 }
 ```
 
-2.php-fpmをインストールする
+2.php、php-fpmをインストールする
+
+```
+sudo yum install php php-fpm php-gd php-mbstring php-pecl-apc php-mysql php-mcrypt php-imap
+```
 
 /etc/php-fpm.d/www.conf を以下に変更する
 ```
