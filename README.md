@@ -28,16 +28,12 @@ takagi.yuusuke@automation.jp
        listen 80;
        server_name www.example.com example.com;
        root /var/www/www.example.com/web;
-       index index.php index.html;
+       index index.html index.htm index.php;
        
        location / {
         try_files $uri $uri/ /index.php?$args =404;
        }
-       
-       location ~*  \.(jpg|jpeg|png|gif|css|js|ico)$ {
-                expires max;
-                log_not_found off;
-       }
+
        location ~ \.php$ {
          try_files $uri =404;
          include fastcgi_params;
