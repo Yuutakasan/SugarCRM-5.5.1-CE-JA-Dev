@@ -21,9 +21,14 @@ takagi.yuusuke@automation.jp
 # インストール手順
 
 1.nginxをインストールする 
- こんな感じでVirtualHostを設定する
 
- ```nginx:virtual.conf
+ ```
+ sudo yum install nginx
+ ```
+
+こんな感じでVirtualHostを設定する
+
+```nginx:virtual.conf
  server {
        listen 80;
        server_name www.example.com example.com;
@@ -73,6 +78,11 @@ php_admin_value[short_open_tag]=On
 
 php_admin_value[date.timezone]="Asia/Tokyo""
 ```
+
+ ```
+ sudo chkconfig nginx on
+ sudo chkconfig php-fpm on
+ ```
 
 3.公開ディレクトリにこのリポジトリのファイルを展開する
 
