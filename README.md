@@ -106,7 +106,9 @@ sudo chmod 775 -R /var/www/www.example.com/web/data
 ```
 
 本家パッケージやドキュメント類は以下を参照してください。
+
 ドキュメント
 https://sourceforge.net/projects/sugarcrm/files/OldFiles/SugarCRM%20Documentation/v5.0%20Manuals/
+
 パッケージ
 https://sourceforge.net/projects/sugarcrm/files/OldFiles/SugarCRM%20Release%20Archive/SugarCRM%205.5.X/
